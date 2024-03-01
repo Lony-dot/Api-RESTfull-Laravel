@@ -15,6 +15,7 @@ class ProductsController extends Controller
         return Product::all();
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -28,7 +29,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Product::create($request->all());
     }
 
     /**
