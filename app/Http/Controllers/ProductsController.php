@@ -33,14 +33,6 @@ class ProductsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
@@ -53,14 +45,24 @@ class ProductsController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->all());
+        return $product;
+    }
+
+     /**
+     * Display the specified resource.
+     */
+    public function show(Product $product)
+    {
+        return $product;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy(Request $request, Product $product, $id)
     {
-        //
+       $product->where('id',$id)->delete();
+        return $product;
     }
 }
