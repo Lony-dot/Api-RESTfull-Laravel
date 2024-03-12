@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +23,9 @@ Route::middleware('auth:sanctum')->get('/id', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
-    Route::get('/products',[ProductsController::class, 'index']);
-    Route::post('/products',[ProductsController::class, 'store']);
-    Route::put('/products/{id}',[ProductsController::class, 'update']);
-    Route::get('/products/{id}',[ProductsController::class, 'show']);
-    Route::delete('/products/{id}',[ProductsController::class, 'destroy']);
+    Route::resources([
+        'products' => ProductsController::class,
+        'users' => UsersController::class,
+
+    ]);
 });
