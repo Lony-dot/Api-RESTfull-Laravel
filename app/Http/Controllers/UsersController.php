@@ -48,7 +48,6 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $user = User::findOrFail($user);
         $user->delete();
 
         return $user;
